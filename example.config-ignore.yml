@@ -1,0 +1,7 @@
+ignore:
+ - dblog.settings
+ - devel.settings
+ - update.settings
+ - system.performance
+ - system.menu.devel
+ - automated_cron.settings
