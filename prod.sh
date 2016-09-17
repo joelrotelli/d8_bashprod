@@ -56,9 +56,6 @@ read answer
 if [[ $answer =~ ^[Yy]$ ]]
 then
 
-
-
-
   git push origin $branch_develop
   echo "Merge $branch_develop info $branch_prod"
   git checkout $branch_prod
