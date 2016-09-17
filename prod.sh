@@ -31,7 +31,7 @@ fi
 
   echo " "
   echo "Vérification des changement de configuration.................."
-  drush $alias cex -n
+  drush $drush_alias cex -n
 
   echo " "
   echo -e "\033[104mExporter et importer\033[0m la configuration ? (y/n) "
@@ -39,7 +39,7 @@ fi
   if [[ $answer =~ ^[Yy]$ ]]
   then
     echo "Exporting configuration.................."
-   drush $alias cexy -y --ignore-list=~/.drush/config-ignore.yml --skip-modules=devel,kint,dblog --destination=$config_destination
+   drush $drush_alias cexy -y --ignore-list=~/.drush/config-ignore.yml --skip-modules=update,devel,kint,dblog --destination=$config_destination
    git status
    echo " "
    echo -e "\033[104mCommiter\033[0m cet export de configuration ? (y/n) "
