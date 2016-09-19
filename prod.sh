@@ -39,7 +39,7 @@ fi
   if [[ $answer =~ ^[Yy]$ ]]
   then
     echo "Exporting configuration.................."
-   drush $drush_alias cexy -y --ignore-list=~/.drush/config-ignore.yml --skip-modules=update,devel,kint,dblog --destination=$config_destination
+   drush $drush_alias cexy -y --ignore-list=~/.drush/config-ignore.yml --skip-modules=update,devel,kint,dblog,stage_file_proxy --destination=$config_destination
    git status
    echo " "
    echo -e "\033[104mCommiter\033[0m cet export de configuration ? (y/n) "
