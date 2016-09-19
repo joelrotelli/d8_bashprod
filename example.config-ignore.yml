@@ -5,3 +5,4 @@ ignore:
  - system.performance
  - system.menu.devel
  - automated_cron.settings
+ - stage_file_proxy.settings
