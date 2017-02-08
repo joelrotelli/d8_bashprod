@@ -30,23 +30,30 @@ else
 fi
 
   echo " "
-  echo "Vérification des changement de configuration.................."
-  drush $drush_alias cex -n
-
-  echo " "
-  echo -e "\033[104mExporter et importer\033[0m la configuration ? (y/n) "
+  echo -e "\033[104mVérifier\033[0m les changement de configuration ? (y/n) "
   read answer
   if [[ $answer =~ ^[Yy]$ ]]
   then
-    echo "Exporting configuration.................."
-   drush $drush_alias cexy -y --ignore-list=~/.drush/config-ignore.yml --skip-modules=update,devel,kint,dblog,stage_file_proxy --destination=$config_destination
-   git status
-   echo " "
-   echo -e "\033[104mCommiter\033[0m cet export de configuration ? (y/n) "
+     echo " "
+    echo "Vérification des changement de configuration.................."
+    drush $drush_alias cex -n
+
+    echo " "
+    echo -e "\033[104mExporter et importer\033[0m la configuration ? (y/n) "
     read answer
     if [[ $answer =~ ^[Yy]$ ]]
     then
-      git add .; git add -u; git commit -m "Export configuration"
+      echo "Exporting configuration.................."
+     drush $drush_alias cexy -y --ignore-list=~/.drush/config-ignore.yml --skip-modules=update,devel,kint,dblog,stage_file_proxy --destination=$config_destination
+     git status
+     git diff
+     echo " "
+     echo -e "\033[104mCommiter\033[0m cet export de configuration ? (y/n) "
+      read answer
+      if [[ $answer =~ ^[Yy]$ ]]
+      then
+        git add .; git add -u; git commit -m "Export configuration"
+      fi
     fi
   fi
 
